@@ -30,26 +30,34 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="/api/auth/session" className={styles.card}>
-            <h3>Session &rarr;</h3>
-            <p>The contents of the session object.</p>
-          </a>
-
-          <a href="/api/auth/csrf" className={styles.card}>
-            <h3>CSRF token &rarr;</h3>
-            <p>
-              NextAuth CSFR Token.
-            </p>
-          </a>
-
           <a href="/api/auth/signin" className={styles.card}>
-            <h3>LogIn &rarr;</h3>
+            <h3>LogIn</h3>
             <p>Login usig one of the providers.</p>
           </a>
 
           <a href="/api/auth/signout" className={styles.card}>
-            <h3>LogOut &rarr;</h3>
+            <h3>LogOut</h3>
             <p>Log out of the current session</p>
+          </a>
+
+          <a href="/api/auth/session" className={styles.card}>
+            <h3>Session</h3>
+            <p>The contents of the session object.</p>
+          </a>
+
+          <a href="/api/auth/csrf" className={styles.card}>
+            <h3>CSRF token</h3>
+            <p>NextAuth CSRF Token.</p>
+          </a>
+
+          <a href="/api/auth/providers" className={styles.card}>
+            <h3>Providers</h3>
+            <p>Available providers.</p>
+          </a>
+
+          <a href="https://github.com/maximousblk/auth-test" className={styles.card}>
+            <h3>Source code</h3>
+            <p>Check out the source code for more info.</p>
           </a>
         </div>
       </main>
