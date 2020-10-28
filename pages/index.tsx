@@ -47,7 +47,7 @@ export default function Home() {
             <p>Login usig one of the providers.</p>
           </a>
 
-          <a href="/api/auth/signin" className={styles.card}>
+          <a href="/api/auth/signout" className={styles.card}>
             <h3>LogOut &rarr;</h3>
             <p>Log out of the current session</p>
           </a>
