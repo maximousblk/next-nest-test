@@ -57,7 +57,7 @@ export default function Home() {
 
           <a href="https://github.com/maximousblk/auth-test" className={styles.card}>
             <h3>Source code</h3>
-            <p>Check out the source code for more info.</p>
+            <p>Source code on GitHub.</p>
           </a>
         </div>
       </main>
