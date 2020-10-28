@@ -13,12 +13,13 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
+          {loading && <p>loading...</p>}
           {session && (
             <p>
               Signed in as <a href="/api/auth/signout">{session.user.name}</a>
             </p>
           )}
-          {!session && (
+          {!loading && !session && (
             <p>
               Please <a href="/api/auth/signin">Sign in</a>
             </p>
