@@ -33,7 +33,7 @@ export default function Home() {
         <div className={styles.grid}>
           <a href="/api/auth/signin" className={styles.card}>
             <h3>LogIn</h3>
-            <p>Login usig one of the providers.</p>
+            <p>Login using one of the providers.</p>
           </a>
 
           <a href="/api/auth/signout" className={styles.card}>
@@ -53,7 +53,7 @@ export default function Home() {
 
           <a href="/api/auth/providers" className={styles.card}>
             <h3>Providers</h3>
-            <p>Available providers.</p>
+            <p>Available OAuth providers.</p>
           </a>
 
           <a href="https://github.com/maximousblk/auth-test" className={styles.card}>
