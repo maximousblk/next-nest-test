@@ -19,7 +19,7 @@ export default function Home() {
               Signed in as <a href="/api/auth/signout">{session.user.name}</a>
             </p>
           )}
-          {!loading && !session && (
+          {!session && (
             <p>
               Please <a href="/api/auth/signin">Sign in</a>
             </p>
