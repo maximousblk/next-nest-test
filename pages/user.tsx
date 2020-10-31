@@ -1,11 +1,13 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import { useSession } from 'next-auth/client';
 
 export default function Home() {
+  const [session, loading] = useSession();
   return (
     <div className={styles.container}>
       <Head>
-        <title>Nest</title>
+        <title>Modules</title>
         <meta property="og:title" content="Nest" />
         <meta property="og:description" content="Immutable Module registry for Deno" />
         <meta property="og:image" content={`https://og.nest.land`} />
@@ -18,34 +20,42 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <p>
-            Welcome to <a href="https://nest.land/">Nest</a>
-          </p>
+          {loading && <p>loading...</p>}
+          {!loading && session && (
+            <p>
+              Signed in as <a href="/api/auth/signout">{session.user.name}</a>
+            </p>
+          )}
+          {!loading && !session && (
+            <p>
+              Please <a href="/api/auth/signin">Sign in</a>
+            </p>
+          )}
         </h1>
 
         <p className={styles.description}>
-          The <em>immutable</em> module registry for Deno
+          Get started by editing <code className={styles.code}>pages/api/auth/[...nextauth].ts</code>
         </p>
 
         <div className={styles.grid}>
-          <a href="/x" className={styles.card}>
-            <h3>Modules</h3>
-            <p>Find awesome modules on Nest</p>
+          <a href="/api/auth/signin" className={styles.card}>
+            <h3>LogIn</h3>
+            <p>Login using one of the providers.</p>
           </a>
 
-          <a href="/user" className={styles.card}>
-            <h3>Profile</h3>
-            <p>View your user profile</p>
+          <a href="/api/auth/signout" className={styles.card}>
+            <h3>LogOut</h3>
+            <p>Log out of the current session</p>
           </a>
 
-          <a href="https://nextjs.org/" className={styles.card}>
-            <h3>Next.js</h3>
-            <p>The React Framework</p>
+          <a href="/api/auth/session" className={styles.card}>
+            <h3>Session</h3>
+            <p>The contents of the session object.</p>
           </a>
 
-          <a href="https://github.com/maximousblk/auth-test" className={styles.card}>
-            <h3>Source code</h3>
-            <p>Source code on GitHub.</p>
+          <a href="/api/auth/csrf" className={styles.card}>
+            <h3>CSRF token</h3>
+            <p>NextAuth CSRF Token.</p>
           </a>
         </div>
       </main>

@@ -80,6 +80,7 @@
 }
 
 .card {
+  min-width: 100%;
   margin: 1rem;
   flex-basis: 45%;
   padding: 1.5rem;
@@ -104,6 +105,13 @@
 }
 
 .card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.card pre {
+  overflow-x: scroll;
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
