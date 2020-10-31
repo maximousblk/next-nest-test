@@ -23,21 +23,22 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>
           {loading && <p>loading...</p>}
-          {!loading && session && (
-            <p>
-              Signed in as <a href="/api/auth/signout">{session.user.name}</a>
-            </p>
-          )}
           {!loading && !session && (
             <p>
               Please <a href="/api/auth/signin">Sign in</a>
             </p>
           )}
+          {!loading && session && (
+            <div>
+              <p>
+                Signed in as <a href="/api/auth/signout">{session.user.name}</a>
+              </p>
+              <p className={styles.description}>
+                User email: <code className={styles.code}>{session.user.email}</code>
+              </p>
+            </div>
+          )}
         </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code className={styles.code}>pages/api/auth/[...nextauth].ts</code>
-        </p>
 
         <div className={styles.grid}>
           <a href="/api/auth/signin" className={styles.card}>
