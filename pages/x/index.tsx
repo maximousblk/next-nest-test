@@ -7,6 +7,8 @@ export default function list({ modules, count }) {
       <Head>
         <title>Modules - Nest</title>
         <meta property="og:title" content="Modules - Nest" />
+        <meta name="description" content="Find awesome Deno modules on Nest" />
+
         <meta property="og:description" content="Find awesome Deno modules on Nest" />
         <meta property="og:image" content="https://og.nest.land/.png" />
 

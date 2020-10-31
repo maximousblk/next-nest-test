@@ -7,13 +7,15 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Modules</title>
-        <meta property="og:title" content="Nest" />
-        <meta property="og:description" content="Immutable Module registry for Deno" />
+        <title>User - Nest</title>
+        <meta name="description" content="User Profile" />
+
+        <meta property="og:title" content="User - Nest" />
+        <meta property="og:description" content="User Profile" />
         <meta property="og:image" content="https://og.nest.land/.png" />
 
-        <meta name="twitter:title" content="Nest" />
-        <meta name="twitter:description" content="Immutable Module registry for Deno" />
+        <meta name="twitter:title" content="User - Nest" />
+        <meta name="twitter:description" content="User Profile" />
         <meta name="twitter:image" content="https://og.nest.land/.png" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>

@@ -14,6 +14,8 @@ export default function list({ module, readme }) {
       <div className={styles.container}>
         <Head>
           <title>{module.name}</title>
+          <meta name="description" content={module.description} />
+
           <meta property="og:title" content={module.name + ' - Nest'} />
           <meta property="og:description" content={module.description} />
           <meta property="og:image" content={`https://og.nest.land/${module.name}.png&fontSize=175px`} />

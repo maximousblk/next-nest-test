@@ -6,6 +6,8 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Nest</title>
+        <meta name="description" content="Immutable Module registry for Deno" />
+
         <meta property="og:title" content="Nest" />
         <meta property="og:description" content="Immutable Module registry for Deno" />
         <meta property="og:image" content="https://og.nest.land/.png" />
