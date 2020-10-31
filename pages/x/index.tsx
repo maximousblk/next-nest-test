@@ -8,11 +8,11 @@ export default function list({ modules, count }) {
         <title>Modules - Nest</title>
         <meta property="og:title" content="Modules - Nest" />
         <meta property="og:description" content="Find awesome Deno modules on Nest" />
-        <meta property="og:image" content={`https://og.nest.land`} />
+        <meta property="og:image" content="https://og.nest.land/.png" />
 
         <meta name="twitter:title" content="Modules - Nest" />
         <meta name="twitter:description" content="Find awesome Deno modules on Nest" />
-        <meta name="twitter:image" content={`https://og.nest.land`} />
+        <meta name="twitter:image" content="https://og.nest.land/.png" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 

@@ -8,11 +8,11 @@ export default function Home() {
         <title>Nest</title>
         <meta property="og:title" content="Nest" />
         <meta property="og:description" content="Immutable Module registry for Deno" />
-        <meta property="og:image" content={`https://og.nest.land`} />
+        <meta property="og:image" content="https://og.nest.land/.png" />
 
         <meta name="twitter:title" content="Nest" />
         <meta name="twitter:description" content="Immutable Module registry for Deno" />
-        <meta name="twitter:image" content={`https://og.nest.land`} />
+        <meta name="twitter:image" content="https://og.nest.land/.png" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
