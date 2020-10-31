@@ -29,14 +29,14 @@ export default function Home() {
             </p>
           )}
           {!loading && session && (
-            <div>
-              <p>
-                Signed in as <a href="/api/auth/signout">{session.user.name}</a>
-              </p>
-              <p className={styles.description}>
-                User email: <code className={styles.code}>{session.user.email}</code>
-              </p>
-            </div>
+            <p>
+              Signed in as <a href="/api/auth/signout">{session.user.name}</a>
+            </p>
+          )}
+          {!loading && session && (
+            <p className={styles.description}>
+              User email: <code className={styles.code}>{session.user.email}</code>
+            </p>
           )}
         </h1>
 
