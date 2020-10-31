@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { useSession } from 'next-auth/client';
 
-export default function Home() {
+export default function User() {
   const [session, loading] = useSession();
   return (
     <div className={styles.container}>
@@ -33,12 +33,12 @@ export default function Home() {
               Signed in as <a href="/api/auth/signout">{session.user.name}</a>
             </p>
           )}
-          {!loading && session && (
-            <p className={styles.description}>
-              User email: <code className={styles.code}>{session.user.email}</code>
-            </p>
-          )}
         </h1>
+        {!loading && session && (
+          <p className={styles.description}>
+            User email: <code className={styles.code}>{session.user.email}</code>
+          </p>
+        )}
 
         <div className={styles.grid}>
           <a href="/api/auth/signin" className={styles.card}>

@@ -8,7 +8,7 @@ const md = new Remarkable({
   typographer: true,
 }).use(HeaderIdsPlugin({ anchorText: '<span class="head_anchor">#</span>' }));
 
-export default function list({ module, readme }) {
+export default function Module({ module, readme }) {
   if (!module.not_found) {
     return (
       <div className={styles.container}>
