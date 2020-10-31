@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '../../styles/x.module.css';
 
 export default function list({ modules, count }) {
@@ -29,18 +30,24 @@ export default function list({ modules, count }) {
 
         <div className={styles.grid}>
           {modules.map((module, i) => (
-            <a href={`x/${module.name}`} className={styles.card} key={i}>
-              <h3>{module.name}</h3>
-              <p>{module.description}</p>
-              <sub>by @{module.owner}</sub>
-            </a>
+            <Link href={`x/${module.name}`}>
+              <a className={styles.card} key={i}>
+                <h3>{module.name}</h3>
+                <p>{module.description}</p>
+                <sub>by @{module.owner}</sub>
+              </a>
+            </Link>
           ))}
         </div>
         <p>You've reached the nether region!</p>
       </main>
 
       <footer className={styles.footer}>
-        <a href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>

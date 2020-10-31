@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import { useSession } from 'next-auth/client';
 
@@ -25,12 +26,18 @@ export default function User() {
           {loading && <p>loading...</p>}
           {!loading && !session && (
             <p>
-              Please <a href="/api/auth/signin">Sign in</a>
+              Please{' '}
+              <Link href="/api/auth/signin">
+                <a>Sign in</a>
+              </Link>
             </p>
           )}
           {!loading && session && (
             <p>
-              Signed in as <a href="/api/auth/signout">{session.user.name}</a>
+              Signed in as{' '}
+              <Link href="/api/auth/signout">
+                <a>{session.user.name}</a>
+              </Link>
             </p>
           )}
         </h1>
@@ -41,15 +48,19 @@ export default function User() {
         )}
 
         <div className={styles.grid}>
-          <a href="/api/auth/signin" className={styles.card}>
-            <h3>LogIn</h3>
-            <p>Login using one of the providers.</p>
-          </a>
+          <Link href="/api/auth/signin">
+            <a className={styles.card}>
+              <h3>LogIn</h3>
+              <p>Login using one of the providers.</p>
+            </a>
+          </Link>
 
-          <a href="/api/auth/signout" className={styles.card}>
-            <h3>LogOut</h3>
-            <p>Log out of the current session</p>
-          </a>
+          <Link href="/api/auth/signout">
+            <a className={styles.card}>
+              <h3>LogOut</h3>
+              <p>Log out of the current session</p>
+            </a>
+          </Link>
 
           <a href="/api/auth/session" className={styles.card}>
             <h3>Session</h3>
@@ -64,7 +75,11 @@ export default function User() {
       </main>
 
       <footer className={styles.footer}>
-        <a href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>

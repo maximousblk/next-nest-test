@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -30,15 +31,19 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="/x" className={styles.card}>
-            <h3>Modules</h3>
-            <p>Find awesome modules on Nest</p>
-          </a>
+          <Link href="/x">
+            <a className={styles.card}>
+              <h3>Modules</h3>
+              <p>Find awesome modules on Nest</p>
+            </a>
+          </Link>
 
-          <a href="/user" className={styles.card}>
-            <h3>Profile</h3>
-            <p>View your user profile</p>
-          </a>
+          <Link href="/user">
+            <a className={styles.card}>
+              <h3>Profile</h3>
+              <p>View your user profile</p>
+            </a>
+          </Link>
 
           <a href="https://nextjs.org/" className={styles.card}>
             <h3>Next.js</h3>
@@ -53,7 +58,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <a href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer">
+        <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">
           Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
