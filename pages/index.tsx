@@ -45,7 +45,7 @@ export default function Home() {
             <p>The React Framework</p>
           </a>
 
-          <a href="https://github.com/maximousblk/auth-test" className={styles.card}>
+          <a href="https://github.com/maximousblk/next-nest-test" className={styles.card}>
             <h3>Source code</h3>
             <p>Source code on GitHub.</p>
           </a>
