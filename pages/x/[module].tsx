@@ -9,49 +9,80 @@ const md = new Remarkable({
 }).use(HeaderIdsPlugin({ anchorText: '<span class="head_anchor">#</span>' }));
 
 export default function list({ module, readme }) {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>{module.name}</title>
-        <meta property="og:title" content={module.name + ' - Nest'} />
-        <meta property="og:description" content={module.description} />
-        <meta property="og:image" content={`https://og.nest.land/${module.name}.png&fontSize=175px`} />
+  if (!module.not_found) {
+    return (
+      <div className={styles.container}>
+        <Head>
+          <title>{module.name}</title>
+          <meta property="og:title" content={module.name + ' - Nest'} />
+          <meta property="og:description" content={module.description} />
+          <meta property="og:image" content={`https://og.nest.land/${module.name}.png&fontSize=175px`} />
 
-        <meta name="twitter:title" content={module.name + ' - Nest'} />
-        <meta name="twitter:description" content={module.description} />
-        <meta name="twitter:image" content={`https://og.nest.land/${module.name}.png&fontSize=175px`} />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
+          <meta name="twitter:title" content={module.name + ' - Nest'} />
+          <meta name="twitter:description" content={module.description} />
+          <meta name="twitter:image" content={`https://og.nest.land/${module.name}.png&fontSize=175px`} />
+          <meta name="twitter:card" content="summary_large_image" />
+        </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          <p>
-            x/<a href={`https://nest.land/package/${module.name}`}>{module.name}</a>
-          </p>
-        </h1>
-        <p className={styles.description}>{module.description}</p>
-        <div className={styles.grid}>
-          <div className={styles.card}>
-            <div dangerouslySetInnerHTML={{ __html: md.render(readme) }}></div>
+        <main className={styles.main}>
+          <h1 className={styles.title}>
+            <p>
+              x/<a href={`https://nest.land/package/${module.name}`}>{module.name}</a>
+            </p>
+          </h1>
+          <p className={styles.description}>{module.description}</p>
+          <div className={styles.grid}>
+            <div className={styles.card}>
+              <div dangerouslySetInnerHTML={{ __html: md.render(readme) }}></div>
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
 
-      <footer className={styles.footer}>
-        <a href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer">
-          Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  );
+        <footer className={styles.footer}>
+          <a href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer">
+            Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          </a>
+        </footer>
+      </div>
+    );
+  } else {
+    return (
+      <div className={styles.container}>
+        <Head>
+          <title>Not Found</title>
+        </Head>
+
+        <main className={styles.main}>
+          <h1 className={styles.title}>
+            <p>Module Not Found</p>
+          </h1>
+          <p className={styles.description}>The Module you're looking for doesn't exist.</p>
+        </main>
+
+        <footer className={styles.footer}>
+          <a href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer">
+            Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          </a>
+        </footer>
+      </div>
+    );
+  }
 }
 
 export async function getStaticProps({ params }) {
-  const module = await fetch(`https://x.nest.land/api/package/${params.module}`).then((res) => res.json());
-  const latest_mod = await fetch(`https://x.nest.land/api/package/${module.latestVersion.replace('@', '/')}`).then((res) => res.json());
-  const readme = await fetch(`${latest_mod.prefix}/README.md`).then((res) => res.text());
+  const module = await fetch(`https://x.nest.land/api/package/${params.module}`)
+    .then((res) => res.json())
+    .catch((err) => {
+      return { latestVersion: '', not_found: true };
+    });
+  const latest_mod = await fetch(`https://x.nest.land/api/package/${module.latestVersion.replace('@', '/')}`)
+    .then((res) => res.json())
+    .catch((err) => '');
+  const readme = await fetch(`${latest_mod.prefix}/README.md`)
+    .then((res) => res.text())
+    .catch((err) => '');
   return {
-    props: { module, readme },
+    props: { module, readme, not_found: false },
     revalidate: 20,
   };
 }
