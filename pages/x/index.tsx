@@ -50,7 +50,3 @@ export async function getStaticProps({ params }) {
   const modules = await fetch(`https://x.nest.land/api/packages`).then((res) => res.json());
   return { props: { modules, count: modules.length }, revalidate: 20 };
 }
-
-export async function getStaticPaths() {
-  return { paths: [], fallback: true };
-}
